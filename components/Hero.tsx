@@ -1,6 +1,6 @@
 import { FaLocationArrow } from 'react-icons/fa6'
 
-import MagicButton from './ui/MagicButton'
+import MagicButton from './ui/Magicbutton'
 import { Spotlight } from './ui/Spotlight'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 
@@ -42,9 +42,6 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
-          </p>
 
           {/**
            *  Link: https://ui.aceternity.com/components/text-generate-effect
@@ -52,13 +49,19 @@ const Hero = () => {
            *  change md:text-6xl, add more responsive code
            */}
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            words="Portfolio"
+            className="text-center text-3xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold"
           />
-
+          <TextGenerateEffect
+            words="Ratchanikorn Prompradit"
+            className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold"
+          />
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Ratchanikorn, a Developer .
+            ยินดีต้อนรับสู่เว็ปไซต์พอตฟอลิโอของ รัชนิกร พรมประดิษฐ์ 
           </p>
+           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+             Dynamic Web Magic with Next.js
+           </p>
 
           <a href="#about">
             <MagicButton
