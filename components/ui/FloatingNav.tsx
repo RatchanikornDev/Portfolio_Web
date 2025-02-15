@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   motion,
   AnimatePresence,
@@ -23,23 +23,30 @@ export const FloatingNav = ({
   const { scrollYProgress } = useScroll()
 
   const [visible, setVisible] = useState(false)
+  const [direction, setDirection] = useState<'up' | 'down'>('up')
 
-  useMotionValueEvent(scrollYProgress, 'change', (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === 'number') {
-      let direction = current! - scrollYProgress.getPrevious()!
+  useEffect(() => {
+    const handleScroll = (event: Event) => {
+      // Check if current is not undefined and is a number
+      if (typeof current === 'number') {
+        let direction = current! - scrollYProgress.getPrevious()!
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false)
-      } else {
-        if (direction < 0) {
-          setVisible(true)
-        } else {
+        if (scrollYProgress.get() < 0.05) {
           setVisible(false)
+        } else {
+          if (direction < 0) {
+            setVisible(true)
+          } else {
+            setVisible(false)
+          }
         }
       }
     }
-  })
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <AnimatePresence mode="wait">
@@ -60,7 +67,7 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
+        {navItems.map((navItem, idx: number) => (
           <Link
             key={`link=${idx}`}
             href={navItem.link}
@@ -76,3 +83,5 @@ export const FloatingNav = ({
     </AnimatePresence>
   )
 }
+
+export default FloatingNav

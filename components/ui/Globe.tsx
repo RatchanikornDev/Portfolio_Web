@@ -96,7 +96,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       _buildData()
       _buildMaterial()
     }
-  }, [globeRef.current])
+  }, [_buildData, _buildMaterial])
 
   const _buildMaterial = () => {
     if (!globeRef.current) return
@@ -162,7 +162,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         })
       startAnimation()
     }
-  }, [globeData])
+  }, [defaultProps.atmosphereAltitude, defaultProps.atmosphereColor, defaultProps.polygonColor, defaultProps.showAtmosphere, startAnimation])
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return
@@ -221,7 +221,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval)
     }
-  }, [globeRef.current, globeData])
+  }, [data.length])
 
   return (
     <>
@@ -237,7 +237,7 @@ export function WebGLRendererConfig() {
     gl.setPixelRatio(window.devicePixelRatio)
     gl.setSize(size.width, size.height)
     gl.setClearColor(0xffaaff, 0)
-  }, [])
+  }, [gl, size.height, size.width])
 
   return null
 }
