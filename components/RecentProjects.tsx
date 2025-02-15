@@ -1,14 +1,12 @@
 import { projects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
-import { FaLocationArrow } from 'react-icons/fa6'
 
 const RecentProjects = () => {
   return (
     <div className="py-20" id="projects">
       <h1 className="heading">
-        
-        <span className="text-purple ">โปรเจคล่าสุด</span>
+        <span className="text-purple">โปรเจคล่าสุด</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
         {projects.map(({ id, title, des, img, iconLists, link, gitLink }) => (
@@ -62,7 +60,6 @@ const RecentProjects = () => {
                   >
                     View on GitHub
                   </a>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
             </PinContainer>
