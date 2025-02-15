@@ -9,7 +9,7 @@ const RecentProjects = () => {
         <span className="text-purple">โปรเจคล่าสุด</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
-        {projects.map(({ id, title, des, img, iconLists, link, gitLink }) => (
+        {projects.map(({ id, title, des, img, iconLists, link, gitLink, date }) => (
           <div
             key={id}
             className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex item-center justify-center sm:w-[570px] w-[80vw]"
@@ -27,6 +27,9 @@ const RecentProjects = () => {
 
               <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
                 {des}
+              </p>
+              <p className="text-center text-gray-500 lg:text-md md:text-sm text-xs mt-1">
+                {date}
               </p>
 
               <div className="flex item-center justify-between mt-7 mb-3">
